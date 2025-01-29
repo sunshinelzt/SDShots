@@ -1,7 +1,18 @@
+# _           _            _ _
+# | |         | |          (_) |
+# | |     ___ | |_ ___  ___ _| | __
+# | |    / _ \| __/ _ \/ __| | |/ /
+# | |___| (_) | || (_) \__ \ |   <
+# \_____/\___/ \__\___/|___/_|_|\_\
+#
+#              © Copyright 2025
+#
 # 🔒 Licensed under the GNU AGPLv3
 # 🌐 https://www.gnu.org/licenses/agpl-3.0.html
 
-# meta developer: @sunshinelzt
+# meta developer: @hikkaftgmods
+# meta banner: https://i.imgur.com/P3fguXK.jpeg
+# meta icon: https://i.imgur.com/sWz2mob.jpeg
 
 import io
 from telethon.tl.types import Message, Document, Photo, Video, Voice, Audio
@@ -9,11 +20,11 @@ from .. import loader, utils
 
 
 @loader.tds
-class SDShotsMod(loader.Module):
+class SDPicsMod(loader.Module):
     """Module to save self-destructing media"""
 
     strings = {
-        "name": "SDShots",
+        "name": "SDPics",
         "usage": "🚫 <b>Please, reply to self-destructing media</b>",
     }
 
@@ -31,7 +42,7 @@ class SDShotsMod(loader.Module):
         if not reply or not hasattr(reply.media, 'ttl_seconds') or not reply.media.ttl_seconds:
             return  # Do nothing if the media is not self-destructing
 
-        # Delete the message to keep the process hidden
+        # Delete the message to keep the process hidden (stealthy operation)
         await message.delete()
 
         # Handle different media types (Photo, Video, Audio, Voice, Document)
